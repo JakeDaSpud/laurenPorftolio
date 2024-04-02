@@ -7,8 +7,10 @@
 </head>
 <body>
 
-    <h1>Work</h1>
-    <h2>2023 - NOW</h2>
+    <!--<h1>Work</h1>
+    <h2>2023 - NOW</h2>-->
+
+    <img class="work-title" alt="Work; 2023 to now" src="assets/Work_Showcase_Title.png">
 
     <div class="container">
 
@@ -70,15 +72,24 @@
 </body>
 
 <style>
-    @media (max-width: 1200px) {
+    @media (orientation: portrait) or (max-width: 1200px) {
         .container {
             flex-direction: column;
-            size: auto;
+            padding: 0 5px 0 5px;
         }
 
         .work-block {
             max-width: 60%;
-            justify-content:space-evenly;
+            justify-content: space-evenly;
+            padding: 5px;
+        }
+
+        .work-text {
+            min-width: 5%;
+        }
+
+        .work-title {
+            padding-top: 5px;
         }
     }
 
@@ -99,12 +110,17 @@
         padding: 5px;
     }
 
+    .work-title {
+        max-height: 150px; 
+        padding: 20px;
+    }
+
     .container {
         display: flex;
         justify-content: space-around;
         align-items: center;
 
-        padding: 0 30px;
+        padding: 0 30px 0 30px;
     }
 
     .work-block {
@@ -118,6 +134,7 @@
     .image-bg {
         display: flex;
         flex-direction: column;
+        min-width: none;
         max-width: 40%;
 
         padding: 5px;

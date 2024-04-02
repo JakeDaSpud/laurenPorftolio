@@ -7,35 +7,44 @@
 </head>
 <body>
     
-    <div class="welcome-image">
-        <img alt="Eye Symbol" src="">
-        <img alt="Lauren O'Reilly Text" src="assets/LOR_Title.png" style="width: 60%;">
+    <div class="welcome-image" style="padding-top: 20px;">
+        <div class="image-bg" style="flex-direction: column; max-height: fit-content; z-index: -2;">
+            <svg width="300" height="150">
+                <circle fill="#9E7CB8" cx="150" cy="150" r="150"></circle>
+            </svg>
+        
+            <svg width="300" height="300">
+                <rect fill="#9E7CB8" x="0" y="0" width="300" height="300"></rect>
+            </svg>
+        </div>
+        <img alt="Eye Symbol" src="assets/Eye_Symbol.png"  style="width: 450px; position: absolute;">
+        <img alt="Lauren O'Reilly Text" src="assets/LOR_Title.png" style="width: 100%; position: absolute;">
     </div>
 
-    <h1>Welcome</h1>
+    <!--<h1>Welcome</h1>-->
 
     <div class="link-container">
-        <div class="about-link">
+        <!--<div class="about-link">
             <a href="about.html"><svg><circle r="45" cx="50" cy="50" fill="#9E7CB8"></circle></svg></a>
             <p>ABOUT</p>
-        </div>
+        </div>-->
 
-        <div class="work-link">
-            <a href="work.html"><svg><circle r="45" cx="50" cy="50" fill="#9E7CB8"></circle></svg></a>
-            <p>WORK</p>
-        </div>
+        <a href="about.html">
+            <img title="About Lauren" alt="Purple button that says 'About'" class="buttonLink" height="90px" width="90px" src="assets/About_Button.png" />
+        </a>
 
-        <div class="contact-link">
-            <svg width="90" height="90" style="z-index: -1;" onclick="window.location.href='contact.html';">
-                <circle r="45" cx="45" cy="45" fill="#9E7CB8"></circle>
-            </svg>
-            <p style="z-index: 1;">CONTACT</p>
-        </div>
+        <a href="work.html">
+            <img title="Lauren's work" alt="Purple button that says 'Work'" class="buttonLink" height="90px" width="90px" src="assets/Work_Button.png" />
+        </a>
+
+        <a href="contact.html">
+            <img title="Contact Lauren" alt="Purple button that says 'Contact'" class="buttonLink" height="90px" width="90px" src="assets/Contact_Button.png" />
+        </a>
     </div>
 
-    <svg width="100" height="100">
+    <!--<svg width="100" height="100">
         <polygon points="10,30 15,25 20,20 25,15 30,10 35,5 40,2 45,1 50,0 55,1 60,2 65,5 70,10 75,15 80,20 85,25 90,30 90,10 10,10" fill="#9E7CB8" />
-    </svg>
+    </svg>-->
 
 </body>
 
@@ -51,47 +60,65 @@
     }
 
     .welcome-image {
+        width: 100%;
+
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         
         position: relative;
     }
 
-    .link-container {
+    .image-bg {
         display: flex;
-        justify-content: space-evenly;
-    }
-    
-    .about-link, .work-link, .contact-link {
-        position: relative;
-        display: inline-block;
+        flex-direction: column;
+        max-width: 40%;
+
+        padding: 5px;
+
+        background-color: rgba(255, 255, 255, 0);
     }
 
-    .about-link > a, .work-link > a, .contact-link > a {
-        display: block;
-        position: relative;
-        width: 100px; /* Adjust according to your SVG size */
-        height: 100px; /* Adjust according to your SVG size */
-    }
-
-    .about-link > p, .work-link > p {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0;
-        z-index: 1; /* Ensure the text is above the SVG */
-    }
-
-    .about-link > svg, .work-link > svg, .contact-link > svg {
-        display: block;
+    .image-bg > svg > circle::before, .image-bg > svg > rect::before {
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
+        background-image: inherit;
+        transform: scale(1.05); /* Adjust the scale factor as needed */
+        z-index: -1;
     }
 
-    circle:hover {
+    .link-container {
+        width: 70%;
+        min-width: 50%;
+        max-width: 70%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    @keyframes bg-light-fade {
+        0% {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        100% {
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+    }
+
+    .buttonLink {
+        background: none;
+        background-position: center;
+        background-position-y: center;
+        padding: 20px;
+    }
+
+    .buttonLink:hover {
+        background: radial-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
         cursor: pointer;
+        animation: bg-light-fade 0.5s infinite alternate;
     }
 
 </style>
